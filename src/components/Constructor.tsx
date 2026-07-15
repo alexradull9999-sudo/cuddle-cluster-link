@@ -146,75 +146,51 @@ export default function Constructor({ initialModelId }: ConstructorProps) {
                 Спецификация: {selectedModel.dimensions}
               </span>
 
-              {/* DYNAMIC STYLIZED BOOTH VECTOR SCHEMATIC */}
-              <div className="relative w-60 h-80 flex items-center justify-center mt-6">
-                
-                {/* 1. Sizing Box/Silhouette representing the booth frame */}
-                <div 
-                  className="w-48 h-72 rounded-[28px] border-[14px] flex flex-col justify-between p-4 relative shadow-2xl transition-all duration-500"
-                  style={{
-                    borderColor: selectedWood.color, // Exterior Wood color
-                    backgroundColor: selectedFelt.color, // Interior Felt color
-                    boxShadow: `0 25px 50px -12px rgba(0,0,0,0.4), 0 0 ${lightingLevel / 2}px rgba(253, 224, 71, ${lightingLevel / 150})` // Glowing LED
-                  }}
-                  id="booth-schematic-interior"
-                >
-                  {/* Ceiling items */}
-                  <div className="flex justify-between items-center w-full">
-                    
-                    {/* Dimmable LED Indicator */}
-                    <div 
-                      className="w-8 h-2 rounded-full transition-all duration-300 mx-auto"
-                      style={{ 
-                        backgroundColor: `rgba(253, 224, 71, ${lightingLevel / 100})`,
-                        boxShadow: `0 4px 12px rgba(253, 224, 71, ${lightingLevel / 100})`
-                      }}
-                    />
+              {/* Cabin Photo Preview */}
+              <div className="relative w-full max-w-[380px] aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl border border-zinc-200/60 bg-zinc-100 mt-6"
+                   id="booth-photo-preview"
+                   style={{
+                     boxShadow: `0 25px 50px -12px rgba(0,0,0,0.4), 0 0 ${lightingLevel / 2}px rgba(253, 224, 71, ${lightingLevel / 200})`
+                   }}
+              >
+                <img
+                  src={cabinImage.url}
+                  alt={`Кабина ${selectedModel.name}`}
+                  className="w-full h-full object-cover object-center"
+                />
 
-                    {/* Active Ventilation Spinner */}
-                    <div className="absolute right-6 top-3 flex items-center space-x-1 text-white/50">
-                      <RefreshCw 
-                        className={`w-3.5 h-3.5 ${isFanOn ? "animate-spin" : ""}`} 
-                        style={{ animationDuration: isFanOn ? "1s" : "0s" }} 
-                      />
-                    </div>
-                  </div>
-
-                  {/* Inside furniture & features representations */}
-                  <div className="flex flex-col items-center justify-center flex-grow mt-4 relative">
-                    {/* Glass door highlight sheen overlay */}
-                    <div className="absolute inset-y-0 -left-2 w-8 bg-gradient-to-r from-white/0 via-white/10 to-white/0 skew-x-12 pointer-events-none" />
-
-                    {/* Desk (differs by model) */}
-                    <div className="w-36 h-2 bg-white/30 rounded-full border border-white/25 mt-4" />
-
-                    {/* Smart Media Screen option indicator */}
-                    {config.hasSmartScreen && (
-                      <div className="absolute top-2 w-16 h-12 rounded-lg bg-zinc-950/80 border border-white/20 flex flex-col items-center justify-center shadow-inner animate-pulse">
-                        <span className="text-[7px] font-mono text-indigo-400">АКУКАБ MEDIA</span>
-                        <div className="w-10 h-0.5 bg-indigo-500 rounded-full mt-1" />
-                      </div>
-                    )}
-
-                    {/* Ergonomic chair/stool representation for smaller, sofas for larger */}
-                    <div className="flex justify-between w-full mt-8 px-2">
-                      <div className="w-8 h-10 bg-white/10 rounded-lg border border-white/15" />
-                      {(modelId === "M" || modelId === "L" || modelId === "XL") && (
-                        <div className="w-8 h-10 bg-white/10 rounded-lg border border-white/15" />
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Base Floor with carpet texture */}
-                  <div className="w-full h-3 bg-zinc-900 rounded-full border border-zinc-700 flex items-center justify-center text-[7px] font-mono text-zinc-500">
-                    ковролин
-                  </div>
-
+                {/* Wood & Felt swatch chips overlay */}
+                <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                  <span className="w-3 h-3 rounded-full border border-white/40" style={{ backgroundColor: selectedWood.color }} />
+                  <span className="w-3 h-3 rounded-full border border-white/40" style={{ backgroundColor: selectedFelt.color }} />
+                  <span className="text-[9px] font-mono font-bold text-white tracking-widest uppercase">Отделка</span>
                 </div>
 
-                {/* Glass Door Handle */}
-                <div className="absolute right-8 top-1/2 -translate-y-1/2 w-2 h-14 bg-zinc-400 rounded-full border border-zinc-300 shadow-md pointer-events-none" />
+                {/* Ventilation status */}
+                <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                  <RefreshCw className={`w-3 h-3 text-indigo-300 ${isFanOn ? "animate-spin" : ""}`} style={{ animationDuration: isFanOn ? "1.2s" : "0s" }} />
+                  <span className="text-[9px] font-mono font-bold text-white tracking-widest uppercase">
+                    {isFanOn ? "Вент. вкл" : "Вент. выкл"}
+                  </span>
+                </div>
+
+                {/* Smart screen indicator */}
+                {config.hasSmartScreen && (
+                  <div className="absolute bottom-4 left-4 bg-indigo-600/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-white" />
+                    <span className="text-[9px] font-mono font-bold text-white tracking-widest uppercase">Media экран</span>
+                  </div>
+                )}
+
+                {/* LED glow overlay */}
+                <div
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background: `radial-gradient(ellipse at 50% 30%, rgba(253, 224, 71, ${lightingLevel / 400}) 0%, transparent 60%)`
+                  }}
+                />
               </div>
+
 
               {/* Dynamic Interactive Features Adjustment inside visualization */}
               <div className="w-full mt-6 bg-white/40 dark:bg-zinc-950/40 border border-zinc-200/50 dark:border-zinc-800 rounded-2xl p-4 space-y-4 text-xs">
