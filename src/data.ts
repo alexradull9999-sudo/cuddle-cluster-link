@@ -3,13 +3,13 @@ import { BoothModel, FAQItem, ProjectItem } from "./types";
 export const BOOTH_MODELS: BoothModel[] = [
   {
     id: "S",
-    name: "Акукаб S",
+    name: "Акукаб 1",
     tagline: "Фокус-зона и конфиденциальные звонки",
     capacity: 1,
-    dimensions: "1000 × 1000 × 2200 мм",
+    dimensions: "1100 × 1100 × 2164 мм",
     soundproofing: 35,
     ventilation: 120,
-    basePrice: 290000,
+    basePrice: 400000,
     description: "Идеальное решение для индивидуальной работы, телефонных и видеозвонков. Занимает всего 1 кв. метр площади, при этом внутри создается ощущение простора и полной изоляции от офисного шума.",
     features: [
       "Бесшумный приток воздуха (120 м³/ч)",
@@ -22,13 +22,13 @@ export const BOOTH_MODELS: BoothModel[] = [
   },
   {
     id: "M",
-    name: "Акукаб M",
+    name: "Акукаб 2",
     tagline: "Тет-а-тет встречи и Zoom-сессии",
     capacity: 2,
-    dimensions: "1500 × 1200 × 2200 мм",
+    dimensions: "2200 × 1100 × 2164 мм",
     soundproofing: 40,
     ventilation: 180,
-    basePrice: 450000,
+    basePrice: 490000,
     description: "Просторная кабина для продуктивной работы одного сотрудника или конфиденциальных переговоров вдвоем. Сверхтихая система вентиляции полностью обновляет воздух каждые 40 секунд.",
     features: [
       "Комфортное размещение двух человек",
@@ -41,13 +41,13 @@ export const BOOTH_MODELS: BoothModel[] = [
   },
   {
     id: "L",
-    name: "Акукаб L",
+    name: "Акукаб 4",
     tagline: "Командный брейншторм до 4 человек",
     capacity: 4,
     dimensions: "2200 × 1500 × 2200 мм",
     soundproofing: 42,
     ventilation: 280,
-    basePrice: 690000,
+    basePrice: 550000,
     description: "Мобильная переговорная комната, не требующая согласований на перепланировку офиса. Вмещает до 4 сотрудников для проведения быстрых совещаний, спринтов и командного проектирования.",
     features: [
       "Вместимость до 4 человек",
