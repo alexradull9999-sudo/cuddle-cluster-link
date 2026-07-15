@@ -33,7 +33,7 @@ const LEFT_FEATURES: FeatureItem[] = [
     id: "ventilation",
     category: "Вентиляция",
     title: "Принудительный воздухообмен",
-    description: "Можно работать 2-4 часа без духоты."
+    description: "Свежий воздух без духоты и запаха."
   }
 ];
 
