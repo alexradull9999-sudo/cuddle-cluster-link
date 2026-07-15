@@ -163,7 +163,7 @@ export default function CabinInteriorDetails() {
             </motion.div>
           </div>
 
-          </div>
+
 
           {/* Right Column Features */}
           <div className="lg:col-span-4 flex flex-col gap-8 md:gap-10 order-3">
