@@ -100,7 +100,7 @@ export const COMPLETED_PROJECTS: ProjectItem[] = [
     clientName: "Яндекс",
     location: "Москва",
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=600",
-    description: "Установка 14 кабин Акукаб S и 4 переговорных Акукаб L для программистов и менеджеров проектов."
+    description: "Установка 14 кабин Акукаб 1 и 4 переговорных Акукаб 4 для программистов и менеджеров проектов."
   },
   {
     id: "proj-2",
@@ -108,7 +108,7 @@ export const COMPLETED_PROJECTS: ProjectItem[] = [
     clientName: "СберБанк",
     location: "Москва",
     image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=600",
-    description: "Оснащение нового блока коворкинга звукоизоляционными капсулами Акукаб M для Zoom-звонков с клиентами."
+    description: "Оснащение нового блока коворкинга звукоизоляционными капсулами Акукаб 2 для Zoom-звонков с клиентами."
   },
   {
     id: "proj-3",
@@ -116,7 +116,7 @@ export const COMPLETED_PROJECTS: ProjectItem[] = [
     clientName: "Т-Банк",
     location: "Санкт-Петербург",
     image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=600",
-    description: "Поставка 8 кабин Акукаб L и 2 модулей XL для быстрых кросс-функциональных стендапов команд разработки."
+    description: "Поставка 8 кабин Акукаб 4 и 2 модулей XL для быстрых кросс-функциональных стендапов команд разработки."
   }
 ];
 
