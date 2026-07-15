@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
+import cabinImage from "@/assets/cabin-office.png.asset.json";
+
 
 interface FeatureItem {
   id: string;
