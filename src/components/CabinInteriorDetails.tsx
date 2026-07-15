@@ -13,7 +13,7 @@ interface FeatureItem {
 const LEFT_FEATURES: FeatureItem[] = [
   {
     id: "sandwich",
-    category: "Пирог",
+    category: "Сэндвич",
     title: "Четырехслойная звукоизоляция",
     description: "Слои с разной плотностью гасят резонанс и поглощают речь."
   },
