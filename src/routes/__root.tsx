@@ -80,9 +80,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "ACUCAB — Акустические кабины для офиса" },
       { name: "description", content: "ACUCAB — акустические кабины для офиса: фокус-зоны, переговорные и meeting-pods с сертифицированной звукоизоляцией и вентиляцией." },
       { property: "og:title", content: "ACUCAB — Акустические кабины для офиса" },
-      { property: "og:description", content: "Акустические кабины ACUCAB: тишина, воздух и комфорт в любом офисе." },
+      { property: "og:description", content: "ACUCAB — акустические кабины для офиса: фокус-зоны, переговорные и meeting-pods с сертифицированной звукоизоляцией и вентиляцией." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "ACUCAB — Акустические кабины для офиса" },
+      { name: "twitter:description", content: "ACUCAB — акустические кабины для офиса: фокус-зоны, переговорные и meeting-pods с сертифицированной звукоизоляцией и вентиляцией." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/646c1caa-f419-43de-b453-1feb47b2a190/id-preview-d086a17f--7d55d9c7-0ea0-4461-a32e-a31ea44b94c0.lovable.app-1784116602873.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/646c1caa-f419-43de-b453-1feb47b2a190/id-preview-d086a17f--7d55d9c7-0ea0-4461-a32e-a31ea44b94c0.lovable.app-1784116602873.png" },
     ],
     links: [
       {
