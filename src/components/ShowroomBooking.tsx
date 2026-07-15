@@ -464,7 +464,7 @@ export default function ShowroomBooking() {
                           </div>
                           <div className="flex justify-between">
                             <span>Локация:</span>
-                            <span className="font-extrabold text-zinc-900">СПб, ул. Бехтерева 3к2</span>
+                            <span className="font-extrabold text-zinc-900">СПб, пр. Обуховской обороны 86к</span>
                           </div>
                         </div>
 

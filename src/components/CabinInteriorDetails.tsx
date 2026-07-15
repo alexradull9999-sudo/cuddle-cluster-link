@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
+import cabinImage from "@/assets/cabin-office.png.asset.json";
+
 
 interface FeatureItem {
   id: string;
@@ -11,7 +13,7 @@ interface FeatureItem {
 const LEFT_FEATURES: FeatureItem[] = [
   {
     id: "sandwich",
-    category: "Пирог",
+    category: "Сэндвич",
     title: "Четырехслойная звукоизоляция",
     description: "Слои с разной плотностью гасят резонанс и поглощают речь."
   },
@@ -31,7 +33,7 @@ const LEFT_FEATURES: FeatureItem[] = [
     id: "ventilation",
     category: "Вентиляция",
     title: "Принудительный воздухообмен",
-    description: "Можно работать 2-4 часа без духоты."
+    description: "Свежий воздух без духоты и запаха."
   }
 ];
 
@@ -123,212 +125,45 @@ export default function CabinInteriorDetails() {
             ))}
           </div>
 
-          {/* Center Column: Interactive Cabin Cross Section */}
+          {/* Center Column: Cabin Photo */}
           <div className="lg:col-span-4 flex flex-col items-center justify-center py-6 order-1 lg:order-2">
-            <div className="relative w-full max-w-[340px] aspect-[4/5] flex items-center justify-center">
-              
-              {/* Left Wave Arc (Office Noise 60 dB) */}
-              <div className="absolute left-[-50px] top-1/2 -translate-y-1/2 flex flex-col items-center select-none" id="soundwave-left-indicator">
-                {/* 3 stacked curved arcs to simulate wave motion */}
-                <div className="relative w-12 h-24 flex items-center justify-center">
-                  <motion.div 
-                    animate={{ scale: [1, 1.12, 1], opacity: [0.35, 0.7, 0.35] }}
-                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                    className="absolute right-0 w-8 h-20 border-r-2 border-zinc-400/40 rounded-full" 
-                  />
-                  <motion.div 
-                    animate={{ scale: [1, 1.08, 1], opacity: [0.5, 0.9, 0.5] }}
-                    transition={{ repeat: Infinity, duration: 2, delay: 0.4, ease: "easeInOut" }}
-                    className="absolute right-3 w-6 h-14 border-r-2 border-zinc-500/50 rounded-full" 
-                  />
-                  <motion.div 
-                    animate={{ scale: [1, 1.05, 1], opacity: [0.6, 1, 0.6] }}
-                    transition={{ repeat: Infinity, duration: 2, delay: 0.8, ease: "easeInOut" }}
-                    className="absolute right-5 w-4 h-8 border-r-2 border-zinc-600/70 rounded-full" 
-                  />
-                </div>
-                <span className="text-[9px] font-bold tracking-widest uppercase text-zinc-400 mt-2">Шум офиса</span>
-                <span className="text-xl font-black text-zinc-800 leading-none mt-1">60 дБ</span>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative w-full max-w-[420px] aspect-[4/5] rounded-[28px] overflow-hidden shadow-2xl border border-zinc-200/60 bg-zinc-100"
+              id="cabin-interactive-shell"
+            >
+              <img
+                src={cabinImage.url}
+                alt="Акустическая кабина ACUCAB в открытом офисе"
+                className="w-full h-full object-cover object-center"
+              />
+
+              {/* Inside dB overlay */}
+              <div className="absolute top-4 left-4 z-10 bg-black/70 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/10 flex flex-col">
+                <span className="text-[9px] font-bold text-white/60 tracking-widest uppercase">Внутри</span>
+                <span className={`text-lg font-black leading-none mt-0.5 transition-colors duration-300 ${hoveredId ? "text-indigo-300" : "text-emerald-300"}`}>
+                  {getInsideDbValue()}
+                </span>
               </div>
 
-              {/* Cabin Shell Container */}
-              <div 
-                className={`relative w-[210px] h-[340px] rounded-[28px] bg-zinc-950 shadow-2xl border-[10px] border-zinc-800/95 transition-all duration-500 flex flex-col overflow-hidden ${
-                  hoveredId === "finish" ? "ring-4 ring-indigo-500/30 border-zinc-700" : ""
-                }`}
-                id="cabin-interactive-shell"
-              >
-                {/* Left cross-section cut showing layers (Pirog) */}
-                <div 
-                  className={`absolute left-0 top-0 bottom-0 w-8 bg-zinc-900 border-r border-zinc-850 flex transition-all duration-300 z-10 ${
-                    hoveredId === "sandwich" ? "bg-indigo-950/40 border-r-indigo-500" : ""
-                  }`}
-                  id="cabin-sandwich-layer"
-                >
-                  {/* Visualizing 4 distinct thin dense layers inside the cut */}
-                  <div className="w-full h-full flex px-1 py-4 gap-[2px]">
-                    <div className={`h-full w-1 rounded-full transition-all duration-300 ${hoveredId === "sandwich" ? "bg-indigo-400" : "bg-zinc-700"}`} />
-                    <div className={`h-full w-1 rounded-full transition-all duration-300 ${hoveredId === "sandwich" ? "bg-indigo-500" : "bg-zinc-600"}`} />
-                    <div className={`h-full w-1 rounded-full transition-all duration-300 ${hoveredId === "sandwich" ? "bg-indigo-300" : "bg-zinc-500"}`} />
-                    <div className={`h-full w-1 rounded-full transition-all duration-300 ${hoveredId === "sandwich" ? "bg-indigo-600 animate-pulse" : "bg-zinc-800"}`} />
-                  </div>
-                </div>
-
-                {/* Right glass wall / Door */}
-                <div 
-                  className={`absolute right-0 top-0 bottom-0 w-4 bg-white/5 border-l border-white/10 transition-all duration-500 z-10 ${
-                    hoveredId === "glass" ? "bg-blue-400/20 border-l-blue-400" : ""
-                  } ${
-                    hoveredId === "door" ? "bg-indigo-400/10 border-l-indigo-400" : ""
-                  }`}
-                  id="cabin-door-element"
-                >
-                  {/* Subtle glass reflection gloss */}
-                  <div className="w-full h-full bg-gradient-to-tr from-transparent via-white/5 to-transparent" />
-                </div>
-
-                {/* Cabin Interior Chamber */}
-                <div className="flex-grow flex flex-col justify-between p-4 pl-10 pr-6 relative bg-[#EFECE1]">
-                  
-                  {/* Top LED Light Strip */}
-                  <div className="absolute top-0 left-10 right-6 h-3 flex justify-center z-10">
-                    <div 
-                      className={`w-4/5 h-2 rounded-b-md transition-all duration-500 shadow-md ${
-                        hoveredId === "lighting" 
-                          ? "bg-amber-100 shadow-amber-300/60 scale-x-105 h-2.5" 
-                          : "bg-emerald-100/90 shadow-emerald-200/30"
-                      }`}
-                      style={{
-                        boxShadow: hoveredId === "lighting" 
-                          ? "0 4px 14px 2px rgba(251, 191, 36, 0.5)" 
-                          : "0 2px 8px rgba(16, 185, 129, 0.2)"
-                      }}
-                    />
-                  </div>
-
-                  {/* Top Ventilation Fan Grid */}
-                  <div className="absolute top-0.5 left-12 w-6 h-1 flex justify-between z-10">
-                    <span className={`w-1 h-0.5 rounded-full ${hoveredId === "ventilation" ? "bg-indigo-500 animate-bounce" : "bg-zinc-400"}`} />
-                    <span className={`w-1 h-0.5 rounded-full ${hoveredId === "ventilation" ? "bg-indigo-500 animate-bounce" : "bg-zinc-400"}`} />
-                    <span className={`w-1 h-0.5 rounded-full ${hoveredId === "ventilation" ? "bg-indigo-500 animate-bounce" : "bg-zinc-400"}`} />
-                  </div>
-
-                  {/* Interior Acoustic Waves / State text overlay */}
-                  <div className="flex-grow flex flex-col justify-center items-center py-6 text-center select-none">
-                    {/* Sine wave decoration */}
-                    <div className="mb-2">
-                      <svg className={`w-10 h-3 transition-colors duration-300 ${hoveredId ? "text-indigo-600" : "text-emerald-500"}`} viewBox="0 0 40 12" fill="none">
-                        <path 
-                          d="M0 6 C 10 0, 10 12, 20 6 C 30 0, 30 12, 40 6" 
-                          stroke="currentColor" 
-                          strokeWidth="2" 
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-[10px] font-sans font-semibold text-zinc-500 tracking-wider">Внутри</span>
-                    <span className={`text-xl font-black transition-colors duration-300 ${hoveredId ? "text-indigo-600" : "text-emerald-600"}`}>
-                      {getInsideDbValue()}
-                    </span>
-                  </div>
-
-                  {/* Built-in Office Desk & Sockets */}
-                  <div className="relative mt-auto w-full flex flex-col items-center">
-                    {/* Compact Outlet Plate */}
-                    <div 
-                      className={`absolute bottom-5 left-1.5 p-1 rounded-sm bg-zinc-800 border transition-all duration-300 flex items-center gap-[2px] ${
-                        hoveredId === "electric" ? "border-indigo-400 shadow-md scale-110" : "border-zinc-700"
-                      }`}
-                      title="Блок розеток 220V + USB"
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-zinc-900 border border-zinc-600 shrink-0" />
-                      <div className="w-1 h-1 rounded-full bg-zinc-500 shrink-0" />
-                    </div>
-
-                    {/* Desk Shelf (Wood Veneer Accent) */}
-                    <div className="w-full h-3.5 bg-[#C59B6D] rounded-md shadow-sm border border-[#B38758] flex items-center justify-end px-3" />
-                  </div>
-
-                  {/* Minimalist Bar Stool sitting inside */}
-                  <div className="w-full flex justify-center pb-2 relative z-10 mt-1">
-                    <div className="flex flex-col items-center">
-                      {/* Seat Cushion */}
-                      <div className="w-8 h-2 rounded-full bg-zinc-700 shadow-sm" />
-                      {/* Metal foot leg */}
-                      <div className="w-1 h-12 bg-zinc-600" />
-                      {/* Chrome Footrest Ring */}
-                      <div className="w-6 h-1 rounded-full border border-zinc-500 bg-transparent -mt-5" />
-                      {/* Floor Base Stand */}
-                      <div className="w-10 h-1 rounded-full bg-zinc-800" />
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* Bottom Base (Feet/Supports) */}
-                <div className="h-2 w-full bg-zinc-900 border-t border-zinc-800 flex justify-around px-4 relative">
-                  <div 
-                    className={`w-3.5 h-3 rounded-b-sm bg-zinc-700 transition-all duration-300 ${
-                      hoveredId === "base" ? "bg-indigo-500 h-4 shadow-md" : ""
-                    }`} 
-                  />
-                  <div 
-                    className={`w-3.5 h-3 rounded-b-sm bg-zinc-700 transition-all duration-300 ${
-                      hoveredId === "base" ? "bg-indigo-500 h-4 shadow-md" : ""
-                    }`} 
-                  />
-                </div>
+              {/* Office noise overlay */}
+              <div className="absolute top-4 right-4 z-10 bg-black/70 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/10 flex flex-col items-end">
+                <span className="text-[9px] font-bold text-white/60 tracking-widest uppercase">Шум офиса</span>
+                <span className="text-lg font-black text-white leading-none mt-0.5">60 дБ</span>
               </div>
-
-              {/* Interactive Dot Hotspots overlaid on the diagram */}
-              {/* Hotspot 1: Sandwich Left Layer */}
-              <button 
-                onMouseEnter={() => setHoveredId("sandwich")}
-                onMouseLeave={() => setHoveredId(null)}
-                className="absolute left-[72px] top-[140px] z-20 w-4 h-4 bg-white/90 border-2 border-indigo-600 rounded-full cursor-pointer flex items-center justify-center shadow-md hover:scale-125 transition-transform"
-                title="Звукоизоляционный пирог"
-              >
-                <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full animate-ping" />
-              </button>
-
-              {/* Hotspot 2: Glass / Door right */}
-              <button 
-                onMouseEnter={() => setHoveredId("glass")}
-                onMouseLeave={() => setHoveredId(null)}
-                className="absolute right-[70px] top-[100px] z-20 w-4 h-4 bg-white/90 border-2 border-indigo-600 rounded-full cursor-pointer flex items-center justify-center shadow-md hover:scale-125 transition-transform"
-                title="Дверной триплекс с демпфером"
-              >
-                <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full animate-ping" />
-              </button>
-
-              {/* Hotspot 3: Ventilation Top */}
-              <button 
-                onMouseEnter={() => setHoveredId("ventilation")}
-                onMouseLeave={() => setHoveredId(null)}
-                className="absolute left-[130px] top-[40px] z-20 w-4 h-4 bg-white/90 border-2 border-indigo-600 rounded-full cursor-pointer flex items-center justify-center shadow-md hover:scale-125 transition-transform"
-                title="Принудительный вентилятор"
-              >
-                <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full animate-ping" />
-              </button>
-
-              {/* Hotspot 4: Sockets / Electrical */}
-              <button 
-                onMouseEnter={() => setHoveredId("electric")}
-                onMouseLeave={() => setHoveredId(null)}
-                className="absolute left-[105px] top-[242px] z-20 w-4 h-4 bg-white/90 border-2 border-indigo-600 rounded-full cursor-pointer flex items-center justify-center shadow-md hover:scale-125 transition-transform"
-                title="Блок коммуникаций"
-              >
-                <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full animate-ping" />
-              </button>
 
               {/* Hint bottom overlay */}
-              <div className="absolute bottom-[-24px] left-1/2 -translate-x-1/2 flex items-center space-x-1.5 select-none" id="interactivity-caption">
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-600 animate-pulse" />
-                <span className="text-[10px] font-bold text-zinc-400 tracking-widest uppercase">НАВЕДИТЕ НА КОМПОНЕНТ</span>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center space-x-1.5 select-none bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full" id="interactivity-caption">
+                <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-pulse" />
+                <span className="text-[10px] font-bold text-white/80 tracking-widest uppercase">НАВЕДИТЕ НА КОМПОНЕНТ</span>
               </div>
-
-            </div>
+            </motion.div>
           </div>
+
+
 
           {/* Right Column Features */}
           <div className="lg:col-span-4 flex flex-col gap-8 md:gap-10 order-3">
