@@ -116,7 +116,7 @@ export const COMPLETED_PROJECTS: ProjectItem[] = [
     clientName: "Т-Банк",
     location: "Санкт-Петербург",
     image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=600",
-    description: "Поставка 8 кабин Акукаб 4 и 2 модулей XL для быстрых кросс-функциональных стендапов команд разработки."
+    description: "Поставка 8 кабин Акукаб 4 и 2 модулей Акукаб 6 для быстрых кросс-функциональных стендапов команд разработки."
   }
 ];
 
