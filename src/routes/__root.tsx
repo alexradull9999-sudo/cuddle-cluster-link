@@ -101,6 +101,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Onest:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap",
       },
     ],
+    scripts: [
+      {
+        children: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=110783984','ym');ym(110783984,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",accurateTrackBounce:true,trackLinks:true});`,
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
