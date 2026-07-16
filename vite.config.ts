@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Build under Node.js for a self-hosted VPS (instead of the default Cloudflare Workers preset).
+  // Output: .output/server/index.mjs — run with `node .output/server/index.mjs`.
+  nitro: {
+    preset: "node-server",
+  },
 });
