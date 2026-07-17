@@ -4,6 +4,7 @@ import { CustomizationConfig } from "../types";
 import { motion, AnimatePresence } from "motion/react";
 import { Zap, ShieldCheck, CheckCircle, RefreshCw, Send, Sparkles, Sun, Info } from "lucide-react";
 import cabinImage from "@/assets/cabin-office.png.asset.json";
+import { sendLead } from "@/lib/webhook";
 
 interface ConstructorProps {
   initialModelId: "S" | "M" | "L" | "XL";
