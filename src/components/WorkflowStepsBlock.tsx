@@ -124,6 +124,11 @@ export default function WorkflowStepsBlock() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
+    sendLead("workflow_steps_start", {
+      name: formData.name,
+      phone: formData.phone,
+      preferredTime: formData.preferredTime,
+    });
     setIsSuccess(true);
   };
 
