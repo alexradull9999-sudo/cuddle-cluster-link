@@ -232,33 +232,33 @@ export default function Constructor({ initialModelId }: ConstructorProps) {
               <div className="space-y-2 mt-4 text-sm text-zinc-600 dark:text-zinc-300">
                 <div className="flex justify-between">
                   <span>Модель ({selectedModel.name}):</span>
-                  <span className="font-semibold text-zinc-950 dark:text-white">{basePrice.toLocaleString()} ₽</span>
+                  <span className="font-semibold text-zinc-950 dark:text-white">{basePrice.toLocaleString('ru-RU')} ₽</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Шпон ({selectedWood.name}):</span>
-                  <span className="font-semibold text-zinc-950 dark:text-white">{woodPremium === 0 ? "0" : `+${woodPremium.toLocaleString()}`} ₽</span>
+                  <span className="font-semibold text-zinc-950 dark:text-white">{woodPremium === 0 ? "0" : `+${woodPremium.toLocaleString('ru-RU')}`} ₽</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Опции и электроника:</span>
-                  <span className="font-semibold text-zinc-950 dark:text-white">{optionsPrice === 0 ? "0" : `+${optionsPrice.toLocaleString()}`} ₽</span>
+                  <span className="font-semibold text-zinc-950 dark:text-white">{optionsPrice === 0 ? "0" : `+${optionsPrice.toLocaleString('ru-RU')}`} ₽</span>
                 </div>
                 
                 <div className="border-t border-indigo-100/80 dark:border-indigo-950/80 pt-3 flex justify-between text-indigo-600 dark:text-indigo-400 text-xs font-bold">
                   <span>Онлайн-скидка 5%:</span>
-                  <span>- {onlineDiscount.toLocaleString()} ₽</span>
+                  <span>- {onlineDiscount.toLocaleString('ru-RU')} ₽</span>
                 </div>
               </div>
 
               <div className="border-t border-indigo-200/50 dark:border-indigo-950/50 mt-4 pt-4 flex items-baseline justify-between">
                 <span className="text-base font-extrabold text-zinc-900 dark:text-white">Итоговая стоимость:</span>
                 <div className="text-right">
-                  <span className="text-2xl sm:text-3xl font-black text-indigo-600 dark:text-indigo-400">{finalPrice.toLocaleString()} ₽</span>
+                  <span className="text-2xl sm:text-3xl font-black text-indigo-600 dark:text-indigo-400">{finalPrice.toLocaleString('ru-RU')} ₽</span>
                   <span className="text-[10px] text-zinc-400 block">с НДС</span>
                 </div>
               </div>
 
               <div className="bg-indigo-600 text-white p-3 rounded-xl mt-4 text-center text-xs font-semibold">
-                Лизинг на 24 мес.: ~{leasingPrice.toLocaleString()} ₽ / месяц
+                Лизинг на 24 мес.: ~{leasingPrice.toLocaleString('ru-RU')} ₽ / месяц
               </div>
             </div>
           </div>
@@ -284,7 +284,7 @@ export default function Constructor({ initialModelId }: ConstructorProps) {
                   >
                     <span className="font-extrabold text-base text-zinc-900 dark:text-white">{m.name}</span>
                     <span className="text-xs text-zinc-500 mt-1">{m.dimensions}</span>
-                    <span className="text-xs font-bold text-indigo-500 mt-3 block">от {m.basePrice.toLocaleString()} ₽</span>
+                    <span className="text-xs font-bold text-indigo-500 mt-3 block">от {m.basePrice.toLocaleString('ru-RU')} ₽</span>
                   </button>
                 ))}
               </div>
@@ -315,7 +315,7 @@ export default function Constructor({ initialModelId }: ConstructorProps) {
                       </div>
                     </div>
                     <span className="text-xs font-mono font-bold text-indigo-500">
-                      {w.price === 0 ? "В комплекте" : `+${w.price.toLocaleString()} ₽`}
+                      {w.price === 0 ? "В комплекте" : `+${w.price.toLocaleString('ru-RU')} ₽`}
                     </span>
                   </button>
                 ))}
@@ -551,23 +551,23 @@ export default function Constructor({ initialModelId }: ConstructorProps) {
                       </div>
                       <div className="flex justify-between">
                         <span>Базовая стоимость:</span>
-                        <span>{submitResult.estimation.basePrice.toLocaleString()} ₽</span>
+                        <span>{submitResult.estimation.basePrice.toLocaleString('ru-RU')} ₽</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Дополнительные опции:</span>
-                        <span>+{submitResult.estimation.addedOptionsCost.toLocaleString()} ₽</span>
+                        <span>+{submitResult.estimation.addedOptionsCost.toLocaleString('ru-RU')} ₽</span>
                       </div>
                       <div className="flex justify-between text-indigo-500">
                         <span>Скидка за онлайн-заказ (5%):</span>
-                        <span>- {submitResult.estimation.discount.toLocaleString()} ₽</span>
+                        <span>- {submitResult.estimation.discount.toLocaleString('ru-RU')} ₽</span>
                       </div>
                       <div className="flex justify-between text-zinc-950 dark:text-white font-extrabold text-sm pt-2 border-t border-zinc-150">
                         <span>ИТОГО К ОПЛАТЕ:</span>
-                        <span>{submitResult.estimation.total.toLocaleString()} ₽</span>
+                        <span>{submitResult.estimation.total.toLocaleString('ru-RU')} ₽</span>
                       </div>
                       <div className="flex justify-between text-green-600 font-bold">
                         <span>Лизинг (на 24 мес.):</span>
-                        <span>{submitResult.estimation.monthlyLeasing.toLocaleString()} ₽ / мес</span>
+                        <span>{submitResult.estimation.monthlyLeasing.toLocaleString('ru-RU')} ₽ / мес</span>
                       </div>
                     </div>
 
