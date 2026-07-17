@@ -74,6 +74,14 @@ export default function ShowroomBooking() {
 
     const generatedCode = `AC-${Math.floor(1000 + Math.random() * 9000)}`;
     setTicketId(generatedCode);
+    sendLead("showroom_booking", {
+      name: formData.name,
+      phone: formData.phone,
+      date: formData.date,
+      time: formData.time,
+      visitorCount: formData.visitorCount,
+      ticketId: generatedCode,
+    });
     setBookingConfirmed(true);
   };
 
