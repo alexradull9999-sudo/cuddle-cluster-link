@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ShieldCheck, UserCheck, FolderOpen, Send, X, CheckCircle2, ArrowRight } from "lucide-react";
+import { sendLead } from "@/lib/webhook";
 
 export default function PartnershipBlock() {
   const [isFormOpen, setIsFormOpen] = useState(false);
