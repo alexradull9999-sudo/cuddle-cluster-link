@@ -18,10 +18,14 @@ export default function CommercialProposalBlock() {
     if (!formData.name || !formData.contact) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    sendLead("commercial_proposal_block", {
+      name: formData.name,
+      contact: formData.contact,
+      company: formData.company,
+    }).finally(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
-    }, 1200);
+    });
   };
 
   const handleClose = () => {
