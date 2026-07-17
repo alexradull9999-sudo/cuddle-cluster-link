@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Send, CheckCircle2, ChevronRight, FolderLock } from "lucide-react";
+import { sendLead } from "@/lib/webhook";
 
 interface StatItem {
   value: string;
