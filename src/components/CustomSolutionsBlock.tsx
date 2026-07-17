@@ -36,6 +36,12 @@ export default function CustomSolutionsBlock() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
+    sendLead("custom_solutions_block", {
+      name: formData.name,
+      phone: formData.phone,
+      idea: formData.idea,
+      details: formData.details,
+    });
     setFormSubmitted(true);
   };
 
