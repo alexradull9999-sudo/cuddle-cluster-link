@@ -102,6 +102,12 @@ export default function ProjectShowcase() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
+    sendLead("project_showcase_catalog", {
+      name: formData.name,
+      phone: formData.phone,
+      company: formData.company,
+      email: formData.email,
+    });
     setFormSubmitted(true);
   };
 
