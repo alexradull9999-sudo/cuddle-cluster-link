@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Send, CheckCircle2, ChevronRight, Sparkles, Settings, Palette, Maximize, Puzzle } from "lucide-react";
+import { sendLead } from "@/lib/webhook";
 
 interface CustomCard {
   number: string;
