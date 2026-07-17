@@ -4,6 +4,7 @@ import { CustomizationConfig } from "../types";
 import { motion, AnimatePresence } from "motion/react";
 import { Zap, ShieldCheck, CheckCircle, RefreshCw, Send, Sparkles, Sun, Info } from "lucide-react";
 import cabinImage from "@/assets/cabin-office.png.asset.json";
+import { sendLead } from "@/lib/webhook";
 
 interface ConstructorProps {
   initialModelId: "S" | "M" | "L" | "XL";
@@ -82,25 +83,19 @@ export default function Constructor({ initialModelId }: ConstructorProps) {
     setErrorMsg(null);
 
     try {
-      const response = await fetch("/api/quote", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          company: formData.company,
-          model: modelId,
-          customizedConfig: config
-        })
+      await sendLead("constructor_quote", {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        company: formData.company,
+        model: modelId,
+        modelName: selectedModel.name,
+        basePrice,
+        totalPrice,
+        finalPrice,
+        customizedConfig: config,
       });
-
-      const data = await response.json();
-      if (response.ok && data.success) {
-        setSubmitResult(data);
-      } else {
-        setErrorMsg(data.error || "Произошла ошибка при отправке заявки.");
-      }
+      setSubmitResult({ success: true, finalPrice });
     } catch (err) {
       setErrorMsg("Ошибка сети. Попробуйте еще раз.");
     } finally {

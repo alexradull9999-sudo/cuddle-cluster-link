@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Send, CheckCircle2, ChevronRight, Sparkles, Settings, Palette, Maximize, Puzzle } from "lucide-react";
+import { sendLead } from "@/lib/webhook";
 
 interface CustomCard {
   number: string;
@@ -35,6 +36,12 @@ export default function CustomSolutionsBlock() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
+    sendLead("custom_solutions_block", {
+      name: formData.name,
+      phone: formData.phone,
+      idea: formData.idea,
+      details: formData.details,
+    });
     setFormSubmitted(true);
   };
 

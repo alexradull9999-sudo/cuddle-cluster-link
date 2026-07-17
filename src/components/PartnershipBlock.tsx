@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ShieldCheck, UserCheck, FolderOpen, Send, X, CheckCircle2, ArrowRight } from "lucide-react";
+import { sendLead } from "@/lib/webhook";
 
 export default function PartnershipBlock() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -15,6 +16,12 @@ export default function PartnershipBlock() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
+    sendLead("partnership_block", {
+      name: formData.name,
+      company: formData.company,
+      phone: formData.phone,
+      email: formData.email,
+    });
     setIsSuccess(true);
   };
 

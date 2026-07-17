@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Send, CheckCircle2, ChevronRight, FolderLock } from "lucide-react";
+import { sendLead } from "@/lib/webhook";
 
 interface StatItem {
   value: string;
@@ -101,6 +102,12 @@ export default function ProjectShowcase() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
+    sendLead("project_showcase_catalog", {
+      name: formData.name,
+      phone: formData.phone,
+      company: formData.company,
+      email: formData.email,
+    });
     setFormSubmitted(true);
   };
 

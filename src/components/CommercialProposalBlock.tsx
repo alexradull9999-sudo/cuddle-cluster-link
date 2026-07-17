@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Ruler, ClipboardCheck, CalendarDays, X, CheckCircle2, Loader2, ArrowRight } from "lucide-react";
+import { sendLead } from "@/lib/webhook";
 
 export default function CommercialProposalBlock() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,14 @@ export default function CommercialProposalBlock() {
     if (!formData.name || !formData.contact) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    sendLead("commercial_proposal_block", {
+      name: formData.name,
+      contact: formData.contact,
+      company: formData.company,
+    }).finally(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
-    }, 1200);
+    });
   };
 
   const handleClose = () => {

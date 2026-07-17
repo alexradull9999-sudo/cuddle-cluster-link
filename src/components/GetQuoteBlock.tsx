@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { sendLead } from "@/lib/webhook";
 
 export default function GetQuoteBlock() {
   const [formData, setFormData] = useState({
@@ -18,11 +19,15 @@ export default function GetQuoteBlock() {
     if (!formData.name || !formData.phone) return;
 
     setIsSubmitting(true);
-    // Simulate API request
-    setTimeout(() => {
+    sendLead("get_quote_block", {
+      name: formData.name,
+      phone: formData.phone,
+      agreeData: formData.agreeData,
+      agreePromo: formData.agreePromo,
+    }).finally(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
-    }, 1000);
+    });
   };
 
   const handleReset = () => {

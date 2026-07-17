@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { sendLead } from "@/lib/webhook";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   FileText, 
@@ -123,6 +124,11 @@ export default function WorkflowStepsBlock() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
+    sendLead("workflow_steps_start", {
+      name: formData.name,
+      phone: formData.phone,
+      preferredTime: formData.preferredTime,
+    });
     setIsSuccess(true);
   };
 
