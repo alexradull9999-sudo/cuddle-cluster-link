@@ -70,11 +70,11 @@ export default function CabinInteriorDetails() {
   // Dynamic values or descriptions based on active highlighted hotspot
   const getInsideDbValue = () => {
     switch (hoveredId) {
-      case "sandwich": return "28 дБ";
-      case "glass": return "32 дБ";
-      case "door": return "29 дБ";
-      case "ventilation": return "30 дБ (Тихо)";
-      default: return "30 дБ";
+      case "sandwich": return "35 дБ";
+      case "glass": return "35 дБ";
+      case "door": return "35 дБ";
+      case "ventilation": return "35 дБ (Тихо)";
+      default: return "35 дБ";
     }
   };
 
