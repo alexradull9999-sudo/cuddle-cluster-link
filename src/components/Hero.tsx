@@ -102,7 +102,7 @@ export default function Hero({ onCalculateClick, onExploreModelsClick }: HeroPro
             id="hero-subtitle"
           >
             Акустические кабины Российского производства.<br />
-            От фокус-зоны до команды на шесть человек.
+            От фокус-зоны до целой команды.
           </motion.p>
 
           {/* CTA Buttons */}
