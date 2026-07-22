@@ -158,8 +158,8 @@ export default function SoundSimulator() {
             Посмотрите, как <br className="hidden sm:inline" /> работает тишина
           </h2>
           <p className="mt-4 text-sm sm:text-base text-zinc-500 leading-relaxed font-normal">
-            Перетащите ползунок - увидите, как изменяется громкость снаружи и внутри <br className="hidden md:inline" />
-            кабины. Убедиться можно в нашем шоуруме в СПб.
+            Слева — типовой шум опенспейса, справа — то же самое в кабине Акукаб. <br className="hidden md:inline" />
+            Убедиться можно в нашем шоуруме в СПб.
           </p>
         </div>
 
@@ -254,49 +254,23 @@ export default function SoundSimulator() {
 
           </div>
 
-          {/* Middle Row: Slider Track & Decibel display */}
-          <div className="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center border-b border-zinc-100">
-            
-            {/* Slider Track Control */}
-            <div className="lg:col-span-8 flex flex-col relative" id="slider-track-wrap">
-              <input
-                type="range"
-                min="0"
-                max={SLIDER_STEPS.length - 1}
-                value={sliderIndex}
-                onChange={(e) => setSliderIndex(parseInt(e.target.value))}
-                className="w-full h-1 bg-zinc-200 rounded-lg appearance-none cursor-pointer accent-[#3b82f6] focus:outline-none focus:ring-1 focus:ring-[#3b82f6]"
-                id="silence-slider"
-                aria-label="Выбор модели кабины для теста тишины"
-              />
-
-              {/* Tick Labels under the slider */}
-              <div className="flex justify-between mt-4 px-1 text-[11px] font-bold text-zinc-400 uppercase tracking-wider">
-                {SLIDER_STEPS.map((step, idx) => (
-                  <button
-                    key={step.name}
-                    onClick={() => setSliderIndex(idx)}
-                    className={`transition-colors duration-200 cursor-pointer ${
-                      idx === sliderIndex ? "text-[#3b82f6] font-black" : "hover:text-zinc-600"
-                    }`}
-                  >
-                    {step.name}
-                  </button>
-                ))}
-              </div>
+          {/* Fixed 35 дБ Decibel Display */}
+          <div className="py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-zinc-100">
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">
+                Модель Акукаб ТОП 1.5
+              </span>
             </div>
-
-            {/* Big Decibel Badge */}
-            <div className="lg:col-span-4 flex items-center justify-start lg:justify-end gap-2 shrink-0">
-              <span className="text-4xl sm:text-5xl font-black font-sans text-[#3b82f6] tracking-tight transition-all duration-300">
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="text-4xl sm:text-5xl font-black font-sans text-[#3b82f6] tracking-tight">
                 {activeStep.dbReduction} дБ
               </span>
               <span className="text-xs sm:text-sm text-zinc-400 font-medium leading-tight">
                 снижения <br /> громкости
               </span>
             </div>
-
           </div>
+
 
           {/* Bottom Half: Speech Intelligibility meters */}
           <div className="pt-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
