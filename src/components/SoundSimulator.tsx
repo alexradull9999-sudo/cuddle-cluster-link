@@ -47,7 +47,7 @@ const SLIDER_STEPS: SliderStep[] = [
 ];
 
 export default function SoundSimulator() {
-  const [sliderIndex, setSliderIndex] = useState<number>(1); // Default to ТОП 1.5
+  const [sliderIndex] = useState<number>(1); // Fixed to ТОП 1.5 (35 дБ)
   const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
   
   // Web Audio API refs for interactive synthesizer sound simulation
