@@ -55,7 +55,7 @@ export default function GetQuoteBlock() {
             <div className="lg:col-span-5 relative min-h-[380px] lg:min-h-[500px] bg-[#E2EFFC]" id="engineer-photo-pane">
               <img
                 src="https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/director-alexey.png"
-                alt="Алексей Корнев - Главный инженер ACUCAB"
+                alt="Алексей Корнев - Главный менеджер ACUCAB"
                 className="absolute inset-0 w-full h-full object-cover object-top grayscale-0 brightness-[100%] hover:scale-[1.01] transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
@@ -75,7 +75,7 @@ export default function GetQuoteBlock() {
                   Алексей Корнев
                 </h4>
                 <p className="text-[11px] text-zinc-500 font-medium leading-normal mt-1">
-                  Главный инженер ACUCAB
+                  Главный менеджер ACUCAB
                 </p>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function GetQuoteBlock() {
                         Получите расчет сегодня
                       </h2>
                       <p className="text-sm sm:text-base text-zinc-500 leading-relaxed font-normal max-w-lg">
-                        С вами свяжется наш инженер, который понимает кабину изнутри.
+                        С вами свяжется наш менеджер, который понимает кабину изнутри.
                       </p>
                     </div>
 
