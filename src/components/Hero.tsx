@@ -59,7 +59,7 @@ export default function Hero({ onCalculateClick, onExploreModelsClick }: HeroPro
             <span className="h-2 w-2 rounded-full bg-[#10B981]" />
             <span className="font-sans">Шоурум открыт</span>
             <span className="text-zinc-300">·</span>
-            <span className="text-zinc-500 font-normal">СПб, пр. Обуховской обороны 86к · Пн-Пт</span>
+            <span className="text-zinc-500 font-normal">СПб, пр. Обуховской обороны 86к · Пн-Пт 10:00–18:00</span>
           </motion.div>
 
           {/* Right Chips Container (Dark Translucent) */}
@@ -102,7 +102,7 @@ export default function Hero({ onCalculateClick, onExploreModelsClick }: HeroPro
             id="hero-subtitle"
           >
             Акустические кабины Российского производства.<br />
-            От фокус-зоны до команды на шесть человек.
+            От фокус-зоны до целой команды.
           </motion.p>
 
           {/* CTA Buttons */}

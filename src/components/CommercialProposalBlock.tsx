@@ -256,7 +256,7 @@ export default function CommercialProposalBlock() {
                           Заявка отправлена!
                         </h3>
                         <p className="text-sm text-[#8a8a85] leading-relaxed font-sans max-w-sm mx-auto">
-                          Спасибо, <span className="text-white font-medium">{formData.name}</span>. Наш инженер уже готовит коммерческое предложение с планировкой и сметой. Мы свяжемся с вами в течение 2 часов.
+                          Спасибо, <span className="text-white font-medium">{formData.name}</span>. Наш менеджер уже готовит коммерческое предложение с планировкой и сметой. Мы свяжемся с вами в течение 2 часов.
                         </p>
                       </div>
                       <div className="pt-2">

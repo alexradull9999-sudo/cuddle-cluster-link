@@ -70,11 +70,11 @@ export default function CabinInteriorDetails() {
   // Dynamic values or descriptions based on active highlighted hotspot
   const getInsideDbValue = () => {
     switch (hoveredId) {
-      case "sandwich": return "28 дБ";
-      case "glass": return "32 дБ";
-      case "door": return "29 дБ";
-      case "ventilation": return "30 дБ (Тихо)";
-      default: return "30 дБ";
+      case "sandwich": return "35 дБ";
+      case "glass": return "35 дБ";
+      case "door": return "35 дБ";
+      case "ventilation": return "35 дБ (Тихо)";
+      default: return "35 дБ";
     }
   };
 
@@ -91,7 +91,7 @@ export default function CabinInteriorDetails() {
           </h2>
           <p className="mt-4 text-sm sm:text-base text-zinc-500 max-w-2xl font-normal leading-relaxed">
             Кабина — это продуманные компоненты, где каждый решает свою задачу. <br className="hidden md:inline" />
-            Шум офиса проходит 6 слоев и теряет до 30 дБ.
+            Шум офиса проходит 5 слоев и теряет до 35 дБ.
           </p>
         </div>
 
