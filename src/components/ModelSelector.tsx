@@ -214,7 +214,7 @@ export default function ModelSelector({ onConfigureModel, onQuickQuote }: ModelS
             </h2>
             <p className="mt-4 text-sm sm:text-base text-zinc-500 leading-relaxed font-normal">
               Акустические кабины для опенспейса: фокус-работа, звонки <br className="hidden md:inline" />
-              и переговоры. От места на одного до команды на шесть человек.
+              и переговоры. От места на одного до целой команды.
             </p>
           </div>
 
