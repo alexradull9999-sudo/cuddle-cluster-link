@@ -91,7 +91,7 @@ export default function CabinInteriorDetails() {
           </h2>
           <p className="mt-4 text-sm sm:text-base text-zinc-500 max-w-2xl font-normal leading-relaxed">
             Кабина — это продуманные компоненты, где каждый решает свою задачу. <br className="hidden md:inline" />
-            Шум офиса проходит 6 слоев и теряет до 30 дБ.
+            Шум офиса проходит 5 слоев и теряет до 35 дБ.
           </p>
         </div>
 
