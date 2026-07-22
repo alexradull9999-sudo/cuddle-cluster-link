@@ -241,7 +241,7 @@ export default function ModelSelector({ onConfigureModel, onQuickQuote }: ModelS
                   : "bg-transparent text-zinc-500 hover:text-zinc-900 border-zinc-200 hover:border-zinc-300"
               }`}
             >
-              Фокус
+              На одного
             </button>
             <button
               onClick={() => setActiveFilter("meeting")}
@@ -251,7 +251,7 @@ export default function ModelSelector({ onConfigureModel, onQuickQuote }: ModelS
                   : "bg-transparent text-zinc-500 hover:text-zinc-900 border-zinc-200 hover:border-zinc-300"
               }`}
             >
-              Переговоры
+              На двоих
             </button>
             <button
               onClick={() => setActiveFilter("team")}
@@ -261,7 +261,7 @@ export default function ModelSelector({ onConfigureModel, onQuickQuote }: ModelS
                   : "bg-transparent text-zinc-500 hover:text-zinc-900 border-zinc-200 hover:border-zinc-300"
               }`}
             >
-              Команды
+              На целую команду
             </button>
           </div>
         </div>

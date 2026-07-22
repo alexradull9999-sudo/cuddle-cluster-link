@@ -73,7 +73,7 @@ export default function CustomSolutionsBlock() {
     {
       number: "02",
       title: "Фирменные цвета",
-      description: "Окрасим металлические профили в любой оттенок по палитре RAL или подберем обивку в корпоративном стиле.",
+      description: "Окрасим кабину в любой цвет и оттенок по вашему желанию или подберем отделку в корпоративном стиле.",
       icon: Palette,
       illustration: (
         <div className="w-full h-48 relative flex items-center justify-center overflow-hidden">
@@ -121,7 +121,7 @@ export default function CustomSolutionsBlock() {
     {
       number: "04",
       title: "Особые задачи",
-      description: "Остекление со смарт-стеклом (переключаемый матовость), экраны бронирования, датчики CO2 или кастомные порты.",
+      description: "Предлагаем стекла на любой вкус: классические матовые, стильные тонированные или брендированные с вашим логотипом.",
       icon: Settings,
       illustration: (
         <div className="w-full h-48 relative flex items-center justify-center overflow-hidden">
