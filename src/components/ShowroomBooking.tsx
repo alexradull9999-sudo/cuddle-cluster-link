@@ -172,7 +172,7 @@ export default function ShowroomBooking() {
                 </div>
                 <div>
                   <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest block">ГРАФИК</span>
-                  <span className="text-xs font-bold text-zinc-850 leading-tight">Пн-Пт, 10:00-19:00</span>
+                  <span className="text-xs font-bold text-zinc-850 leading-tight">Пн-Пт, 10:00–18:00</span>
                 </div>
               </div>
 

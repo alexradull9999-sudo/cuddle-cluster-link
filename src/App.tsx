@@ -155,7 +155,7 @@ export default function App() {
               <div className="space-y-1.5 text-xs sm:text-sm text-[#8E8E93] leading-relaxed">
                 <p>г. Санкт-Петербург,</p>
                 <p>пр. Обуховской обороны, 86к</p>
-                <p>Пн-Пт, 10:00-19:00</p>
+                <p>Пн-Пт, 10:00–18:00</p>
               </div>
 
               {/* Legal Info */}
