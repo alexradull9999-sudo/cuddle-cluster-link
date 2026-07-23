@@ -83,7 +83,7 @@ const WORKFLOW_STEPS: Step[] = [
     id: "step-5",
     number: "05",
     title: "Производство",
-    duration: "от 14 дней",
+    duration: "от 30 дней",
     description: "Изготовление с контролем качества на каждом этапе.",
     icon: Sparkles,
     details: [
