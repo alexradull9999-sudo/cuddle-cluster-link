@@ -17,6 +17,7 @@ interface CabinModel {
   isolation: string;
   timeline: string;
   soldCount: number;
+  priceFrom: number; // цена «от», ₽
   image: string;
   images: string[];
   colors: string[];
@@ -34,6 +35,7 @@ const CABIN_MODELS: CabinModel[] = [
     isolation: "35 дБ",
     timeline: "30 рабочих дней",
     soldCount: 67,
+    priceFrom: 400000,
     image: "https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-top-1.png",
     images: ["https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-top-1.png"],
     colors: ["#111111", "#EFECE1", "#D7B489", "#2563EB", "#15803D"],
@@ -49,6 +51,7 @@ const CABIN_MODELS: CabinModel[] = [
     isolation: "35 дБ",
     timeline: "30 рабочих дней",
     soldCount: 45,
+    priceFrom: 445000,
     image: "https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-top-1-5.png",
     images: ["https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-top-1-5.png"],
     colors: ["#111111", "#EFECE1", "#D7B489", "#2563EB", "#15803D"],
@@ -64,6 +67,7 @@ const CABIN_MODELS: CabinModel[] = [
     isolation: "35 дБ",
     timeline: "30 рабочих дней",
     soldCount: 58,
+    priceFrom: 490000,
     image: "https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-top-2.png",
     images: ["https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-top-2.png"],
     colors: ["#111111", "#EFECE1", "#D7B489", "#2563EB", "#15803D"],
@@ -79,6 +83,7 @@ const CABIN_MODELS: CabinModel[] = [
     isolation: "35 дБ",
     timeline: "30 рабочих дней",
     soldCount: 67,
+    priceFrom: 480000,
     image: "https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-ofis-1.png",
     images: ["https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-ofis-1.png"],
     colors: ["#111111", "#EFECE1", "#D7B489", "#2563EB", "#15803D"],
@@ -94,6 +99,7 @@ const CABIN_MODELS: CabinModel[] = [
     isolation: "35 дБ",
     timeline: "30 рабочих дней",
     soldCount: 45,
+    priceFrom: 525000,
     image: "https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-ofis-1-5.png",
     images: ["https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-ofis-1-5.png"],
     colors: ["#111111", "#EFECE1", "#D7B489", "#2563EB", "#15803D"],
@@ -109,6 +115,7 @@ const CABIN_MODELS: CabinModel[] = [
     isolation: "35 дБ",
     timeline: "30 рабочих дней",
     soldCount: 58,
+    priceFrom: 570000,
     image: "https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-ofis-2.png",
     images: ["https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-ofis-2.png"],
     colors: ["#111111", "#EFECE1", "#D7B489", "#2563EB", "#15803D"],
@@ -124,6 +131,7 @@ const CABIN_MODELS: CabinModel[] = [
     isolation: "35 дБ",
     timeline: "30 рабочих дней",
     soldCount: 67,
+    priceFrom: 400000,
     image: "https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-acucab-1.png",
     images: ["https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-acucab-1.png"],
     colors: ["#111111", "#EFECE1", "#D7B489", "#2563EB", "#15803D"],
@@ -139,6 +147,7 @@ const CABIN_MODELS: CabinModel[] = [
     isolation: "35 дБ",
     timeline: "30 рабочих дней",
     soldCount: 45,
+    priceFrom: 445000,
     image: "https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-acucab-1-5.png",
     images: ["https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-acucab-1-5.png"],
     colors: ["#111111", "#EFECE1", "#D7B489", "#2563EB", "#15803D"],
@@ -154,12 +163,16 @@ const CABIN_MODELS: CabinModel[] = [
     isolation: "35 дБ",
     timeline: "30 рабочих дней",
     soldCount: 58,
+    priceFrom: 490000,
     image: "https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-acucab-2.png",
     images: ["https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/m-acucab-2.png"],
     colors: ["#111111", "#EFECE1", "#D7B489", "#2563EB", "#15803D"],
     configMapId: "M"
   }
 ];
+
+const formatPrice = (value: number) =>
+  `от ${value.toLocaleString("ru-RU")} ₽`;
 
 type FilterType = "all" | "focus" | "meeting" | "team";
 
