@@ -31,9 +31,12 @@ const SPECIAL_CABINS: SpecialCabinData[] = [
     timelineValue: "от 21 дня",
     colors: ["#111111", "#EFECE1", "#D7B489", "#2563EB", "#15803D"],
     images: [
-      "spec-rso1.webp",
-      "spec-rso2.webp",
-      "spec-rso3.webp"
+      "https://acucab.ru/wp-content/uploads/diktor-800x800.webp",
+      "https://acucab.ru/wp-content/uploads/solo-800x800.webp",
+      "https://acucab.ru/wp-content/uploads/strim-800x800.webp",
+      "https://acucab.ru/wp-content/uploads/komfort-800x800.webp",
+      "https://acucab.ru/wp-content/uploads/lajt-1-800x800.webp",
+      "https://acucab.ru/wp-content/uploads/ugol-1-800x800.webp"
     ]
   },
   {
