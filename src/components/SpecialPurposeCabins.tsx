@@ -138,7 +138,7 @@ export default function SpecialPurposeCabins() {
                   <img
                     src={currentImg}
                     alt={cabin.title}
-                    className="w-full h-full object-cover object-center transition-all duration-500 ease-in-out group-hover:scale-102"
+                    className="w-full h-full object-contain object-center transition-all duration-500 ease-in-out group-hover:scale-102"
                     referrerPolicy="no-referrer"
                   />
 
