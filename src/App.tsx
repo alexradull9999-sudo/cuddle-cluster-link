@@ -17,6 +17,8 @@ import GetQuoteBlock from "./components/GetQuoteBlock";
 import CommercialProposalBlock from "./components/CommercialProposalBlock";
 import NextStepBlock from "./components/NextStepBlock";
 import PartnershipBlock from "./components/PartnershipBlock";
+import Quiz from "./components/Quiz";
+import CallbackPopup from "./components/CallbackPopup";
 import { ArrowUp, ShieldCheck, HelpCircle, Phone, MapPin, Mail, MessageSquare } from "lucide-react";
 
 export default function App() {
@@ -116,6 +118,9 @@ export default function App() {
         {/* Dynamic customized quote calculator form */}
         <GetQuoteBlock />
 
+        {/* 4-step qualification quiz */}
+        <Quiz />
+
         {/* Commercial Proposal KP section */}
         <CommercialProposalBlock />
 
@@ -128,6 +133,11 @@ export default function App() {
         {/* Partnership program block */}
         <PartnershipBlock />
       </main>
+
+      {/* Floating callback popup */}
+      <CallbackPopup />
+
+
 
       {/* 3. Footer */}
       <footer className="bg-[#0A0A0C] text-[#8E8E93] py-16 sm:py-20 border-t border-zinc-900" id="footer">
