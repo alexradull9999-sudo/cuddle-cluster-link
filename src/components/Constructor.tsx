@@ -116,7 +116,7 @@ export default function Constructor({ initialModelId }: ConstructorProps) {
             3D-КОНСТРУКТОР
           </span>
           <h2 className="text-4xl md:text-5xl font-sans font-black tracking-tight mt-4 text-zinc-900 dark:text-white">
-            Найди свое пространство
+            4 вопроса — и точный расчёт
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 font-light text-lg">
             Выберите размеры, породу дерева, цвет внутреннего акустического войлока и 
