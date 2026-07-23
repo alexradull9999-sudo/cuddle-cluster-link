@@ -17,6 +17,8 @@ import GetQuoteBlock from "./components/GetQuoteBlock";
 import CommercialProposalBlock from "./components/CommercialProposalBlock";
 import NextStepBlock from "./components/NextStepBlock";
 import PartnershipBlock from "./components/PartnershipBlock";
+import Quiz from "./components/Quiz";
+import CallbackPopup from "./components/CallbackPopup";
 import { ArrowUp, ShieldCheck, HelpCircle, Phone, MapPin, Mail, MessageSquare } from "lucide-react";
 
 export default function App() {
