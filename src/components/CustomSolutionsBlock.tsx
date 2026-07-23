@@ -49,7 +49,7 @@ export default function CustomSolutionsBlock() {
     {
       number: "01",
       title: "Нестандартная геометрия",
-      description: "Адаптируем кабину под наклонные мансардные потолки, колонны в офисе или узкие ниши.",
+      description: "Адаптируем под ваши размеры.",
       icon: Maximize,
       illustration: (
         <div className="w-full h-48 relative flex items-center justify-center overflow-hidden">
