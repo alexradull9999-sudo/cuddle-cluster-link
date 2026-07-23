@@ -69,7 +69,7 @@ export default function GetQuoteBlock() {
                 id="engineer-info-overlay"
               >
                 <span className="text-[10px] font-bold text-zinc-400 tracking-widest uppercase block mb-1">
-                  ВАШ ИНЖЕНЕР
+                  ВАШ МЕНЕДЖЕР
                 </span>
                 <h4 className="text-base font-black text-zinc-900 tracking-tight leading-tight">
                   Алексей Корнев

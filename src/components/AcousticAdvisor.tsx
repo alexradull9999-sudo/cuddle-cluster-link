@@ -101,7 +101,7 @@ export default function AcousticAdvisor() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-bold tracking-widest uppercase text-indigo-400 bg-indigo-500/10 border border-indigo-500/25 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 w-fit mx-auto">
             <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-            ИИ-ИНЖЕНЕР ПО АКУСТИКЕ
+            ИИ-МЕНЕДЖЕР ПО АКУСТИКЕ
           </span>
           <h2 className="text-4xl md:text-5xl font-sans font-black tracking-tight mt-4">
             Консультация с экспертом
