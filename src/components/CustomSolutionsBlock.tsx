@@ -322,7 +322,7 @@ export default function CustomSolutionsBlock() {
                             <option value="Нестандартная геометрия">Нестандартная геометрия</option>
                             <option value="Фирменные цвета">Фирменные цвета (RAL / Обивка)</option>
                             <option value="Интеграция в интерьер">Интеграция в интерьер (Встраивание)</option>
-                            <option value="Особые задачи">Особые задачи (Smart-стекло, датчики)</option>
+                            <option value="Особые задачи">Особые задачи (стекла: матовые, тонированные, брендированные)</option>
                           </select>
                         </div>
 
