@@ -19,6 +19,8 @@ import NextStepBlock from "./components/NextStepBlock";
 import PartnershipBlock from "./components/PartnershipBlock";
 import Quiz from "./components/Quiz";
 import CallbackPopup from "./components/CallbackPopup";
+import LeadFormPopup from "./components/LeadFormPopup";
+import { openLeadPopup } from "./lib/leadPopup";
 import { ArrowUp, ShieldCheck, HelpCircle, Phone, MapPin, Mail, MessageSquare } from "lucide-react";
 
 export default function App() {
@@ -58,7 +60,7 @@ export default function App() {
       
       {/* 1. Header Navigation */}
       <Header 
-        onCalculateClick={() => handleQuickQuote("S")} 
+        onCalculateClick={() => openLeadPopup("header_quote", { title: "Получить расчет", subtitle: "Оставьте контакт — менеджер посчитает стоимость под ваш офис." })} 
         onNavigate={handleScrollToSection} 
       />
 
@@ -128,6 +130,8 @@ export default function App() {
 
       {/* Floating callback popup */}
       <CallbackPopup />
+      <LeadFormPopup />
+
 
 
 
