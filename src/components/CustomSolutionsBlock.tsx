@@ -73,7 +73,7 @@ export default function CustomSolutionsBlock() {
     {
       number: "02",
       title: "Фирменные цвета",
-      description: "Окрасим кабину в любой цвет и оттенок по вашему желанию или подберем отделку в корпоративном стиле.",
+      description: "окрасим кабину в любой цвет и оттенок по вашему желанию или подберем отделку в корп стиле",
       icon: Palette,
       illustration: (
         <div className="w-full h-48 relative flex items-center justify-center overflow-hidden">
