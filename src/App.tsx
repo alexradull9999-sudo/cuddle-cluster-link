@@ -109,9 +109,6 @@ export default function App() {
         {/* St. Petersburg Showroom Booking scheduler */}
         <ShowroomBooking />
 
-        {/* Custom non-standard engineering solutions */}
-        <CustomSolutionsBlock />
-
         {/* Step-by-step customer journey workflow */}
         <WorkflowStepsBlock />
 
