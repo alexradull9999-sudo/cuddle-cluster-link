@@ -74,7 +74,7 @@ const CASES_DATA: ProjectCase[] = [
     image: "https://raw.githubusercontent.com/alexradull9999-sudo/firumg/main/case-brand.jpg",
     stats: [
       { value: "4", label: "кабины в брендинге" },
-      { value: "RAL", label: "брендовые цвета корпуса" },
+      { value: "Любой", label: "цвет корпуса" },
       { value: "Умное", label: "тонируемое стекло" }
     ]
   }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Send, CheckCircle2, ChevronRight, Sparkles, Settings, Palette, Maximize, Puzzle } from "lucide-react";
+import { X, Send, CheckCircle2, ChevronRight, Sparkles, Settings, Paintbrush, Maximize, Puzzle } from "lucide-react";
 import { sendLead } from "@/lib/webhook";
 
 interface CustomCard {
@@ -72,19 +72,19 @@ export default function CustomSolutionsBlock() {
     },
     {
       number: "02",
-      title: "Фирменные цвета",
+      title: "Любой цвет или брендирование",
       description: "окрасим кабину в любой цвет и оттенок по вашему желанию или подберем отделку в корп стиле",
-      icon: Palette,
+      icon: Paintbrush,
       illustration: (
         <div className="w-full h-48 relative flex items-center justify-center overflow-hidden">
           {/* Custom brand colors with glowing blue side panels */}
           <div className="w-36 h-44 relative bg-[#18181B] rounded-2xl border border-zinc-850 flex items-center justify-center p-4 shadow-2xl transition-all">
             {/* Left side brand color highlight panel */}
             <div className="absolute left-0 inset-y-0 w-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-l-2xl opacity-80 group-hover:opacity-100 transition-all shadow-[0_0_12px_rgba(37,99,235,0.4)]" />
-            
+
             {/* Right side brand color highlight panel */}
             <div className="absolute right-0 inset-y-0 w-4 bg-gradient-to-l from-blue-600 to-indigo-600 rounded-r-2xl opacity-80 group-hover:opacity-100 transition-all shadow-[0_0_12px_rgba(37,99,235,0.4)]" />
-            
+
             {/* Center cabin door glass */}
             <div className="w-full h-full border border-zinc-800 bg-zinc-950/60 rounded-lg relative flex items-center justify-end pr-2">
               <span className="w-1.5 h-10 bg-white rounded-full shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
@@ -320,7 +320,7 @@ export default function CustomSolutionsBlock() {
                             className="w-full bg-[#18181C] border border-zinc-800 text-sm px-4 py-3.5 rounded-2xl text-white focus:outline-none focus:border-blue-500"
                           >
                             <option value="Нестандартная геометрия">Нестандартная геометрия</option>
-                            <option value="Фирменные цвета">Фирменные цвета (RAL / Обивка)</option>
+                            <option value="Любой цвет или брендирование">Любой цвет или брендирование</option>
                             <option value="Интеграция в интерьер">Интеграция в интерьер (Встраивание)</option>
                             <option value="Особые задачи">Особые задачи (стекла: матовые, тонированные, брендированные)</option>
                           </select>
