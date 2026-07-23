@@ -31,7 +31,7 @@ const WORKFLOW_STEPS: Step[] = [
     id: "step-1",
     number: "01",
     title: "Заявка",
-    duration: "15 минут",
+    duration: "2 часа",
     description: "Оставляете задачу. Перезваниваем в течение 2 часов.",
     icon: PhoneCall,
     details: [
@@ -75,7 +75,7 @@ const WORKFLOW_STEPS: Step[] = [
     icon: ClipboardCheck,
     details: [
       "Фиксируем конечную смету и условия доставки без скрытых переплат",
-      "Предоставляем официальное коммерческое предложение со всеми чертежами",
+      "Предоставляем официальное коммерческое предложение",
       "Согласовываем и подписываем договор (работаем с НДС)"
     ]
   },
@@ -96,13 +96,11 @@ const WORKFLOW_STEPS: Step[] = [
     id: "step-6",
     number: "06",
     title: "Монтаж",
-    duration: "менее часа",
+    duration: "от 3 часов",
     description: "Привозим, собираем на месте, сдаем готовую кабину.",
     icon: Wrench,
     details: [
-      "Доставка кабин в разобранном виде (все элементы бережно упакованы)",
-      "Бесшумная сборка нашими сертифицированными мастерами (45-60 минут на кабину)",
-      "Финальный замер шумоизоляции шумомером и передача ключей"
+      "Доставка кабин в разобранном виде (все элементы бережно упакованы)"
     ]
   }
 ];
@@ -347,7 +345,7 @@ export default function WorkflowStepsBlock() {
                     >
                       <div className="space-y-1.5">
                         <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest font-mono">
-                          СТАРТ ПРОЕКТА ЗА 15 МИНУТ
+                          СТАРТ ПРОЕКТА ЗА 2 ЧАСА
                         </span>
                         <h3 className="text-xl font-black text-zinc-900 tracking-tight leading-tight">
                           Оставить заявку
