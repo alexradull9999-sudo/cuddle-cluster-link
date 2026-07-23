@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { X, Send, CheckCircle2, ChevronRight, FolderLock } from "lucide-react";
-import { sendLead } from "@/lib/webhook";
+import React from "react";
+import { openLeadPopup } from "@/lib/leadPopup";
 
 interface StatItem {
   value: string;
@@ -81,35 +79,12 @@ const CASES_DATA: ProjectCase[] = [
 ];
 
 export default function ProjectShowcase() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    company: "",
-    email: ""
-  });
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-    setFormSubmitted(false);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.phone) return;
-    sendLead("project_showcase_catalog", {
-      name: formData.name,
-      phone: formData.phone,
-      company: formData.company,
-      email: formData.email,
+  const handleOpenModal = () =>
+    openLeadPopup("project_showcase_catalog", {
+      title: "Подборка проектов",
+      subtitle: "Оставьте контакт — вышлем PDF-каталог с фото, чертежами и сметами.",
+      buttonLabel: "Получить подборку",
     });
-    setFormSubmitted(true);
-  };
 
   return (
     <section className="py-20 sm:py-28 bg-[#FCFCFC] text-zinc-900 relative border-t border-zinc-200/50" id="projects">
