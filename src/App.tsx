@@ -6,7 +6,7 @@ import SpecialPurposeCabins from "./components/SpecialPurposeCabins";
 import CabinInteriorDetails from "./components/CabinInteriorDetails";
 import SoundSimulator from "./components/SoundSimulator";
 import ProductionBlock from "./components/ProductionBlock";
-import Constructor from "./components/Constructor";
+
 import ProjectShowcase from "./components/ProjectShowcase";
 import ShowroomBooking from "./components/ShowroomBooking";
 import FAQ from "./components/FAQ";
@@ -38,17 +38,12 @@ export default function App() {
 
   const handleConfigureModel = (modelId: "S" | "M" | "L" | "XL") => {
     setSelectedConfigModelId(modelId);
-    handleScrollToSection("constructor");
+    handleScrollToSection("quiz");
   };
 
   const handleQuickQuote = (modelId: "S" | "M" | "L" | "XL") => {
     setSelectedConfigModelId(modelId);
-    handleScrollToSection("constructor");
-    // Also focus on name input inside form if possible
-    setTimeout(() => {
-      const formInput = document.querySelector("#constructor form input");
-      if (formInput) (formInput as HTMLElement).focus();
-    }, 800);
+    handleScrollToSection("quiz");
   };
 
   const handleScrollToTop = () => {
@@ -98,10 +93,9 @@ export default function App() {
         {/* St. Petersburg Production Factory block */}
         <ProductionBlock />
 
-        {/* Interactive 3D Customization constructor */}
-        <Constructor 
-          initialModelId={selectedConfigModelId} 
-        />
+        {/* 4-step qualification quiz */}
+        <Quiz />
+
 
         {/* Show completed office cases */}
         <ProjectShowcase />
@@ -118,8 +112,6 @@ export default function App() {
         {/* Dynamic customized quote calculator form */}
         <GetQuoteBlock />
 
-        {/* 4-step qualification quiz */}
-        <Quiz />
 
         {/* Commercial Proposal KP section */}
         <CommercialProposalBlock />
@@ -212,7 +204,7 @@ export default function App() {
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleScrollToSection("constructor")} className="hover:text-white transition-colors cursor-pointer text-left">
+                  <button onClick={() => handleScrollToSection("quiz")} className="hover:text-white transition-colors cursor-pointer text-left">
                     Производство
                   </button>
                 </li>
