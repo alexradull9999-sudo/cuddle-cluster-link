@@ -21,14 +21,14 @@ export default function Header({ onCalculateClick, onNavigate }: HeaderProps) {
         >
           <img 
             src="webo-mark.png" 
-            alt="акукаб logo" 
+            alt="Акукаб logo" 
             className="h-6 w-auto object-contain"
             onError={(e) => {
               (e.currentTarget as HTMLImageElement).style.display = "none";
             }}
           />
-          <span className="font-sans font-extrabold text-zinc-900 text-xl tracking-tight leading-none lowercase">
-            акукаб
+          <span className="font-sans font-extrabold text-zinc-900 text-xl tracking-tight leading-none">
+            Акукаб
           </span>
         </div>
 

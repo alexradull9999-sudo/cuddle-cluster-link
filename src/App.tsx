@@ -83,6 +83,9 @@ export default function App() {
           onQuickQuote={handleQuickQuote} 
         />
 
+        {/* Custom non-standard engineering solutions */}
+        <CustomSolutionsBlock />
+
         {/* Cabins outside office */}
         <SpecialPurposeCabins />
 
@@ -105,9 +108,6 @@ export default function App() {
 
         {/* St. Petersburg Showroom Booking scheduler */}
         <ShowroomBooking />
-
-        {/* Custom non-standard engineering solutions */}
-        <CustomSolutionsBlock />
 
         {/* Step-by-step customer journey workflow */}
         <WorkflowStepsBlock />
