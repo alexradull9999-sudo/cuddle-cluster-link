@@ -370,10 +370,20 @@ export default function ModelSelector({ onConfigureModel, onQuickQuote }: ModelS
                 {/* Card Info */}
                 <div className="p-6 flex flex-col justify-between flex-grow">
                   <div>
-                    {/* Title */}
-                    <h3 className="font-sans text-xl font-bold tracking-tight text-zinc-500">
-                      {model.namePrefix} <span className="text-[#3b82f6] font-black">{model.nameSuffix}</span>
-                    </h3>
+                    {/* Title + price */}
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="font-sans text-xl font-bold tracking-tight text-zinc-500">
+                        {model.namePrefix} <span className="text-[#3b82f6] font-black">{model.nameSuffix}</span>
+                      </h3>
+                      <div className="text-right shrink-0">
+                        <div className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">
+                          Цена
+                        </div>
+                        <div className="text-sm sm:text-base font-black text-zinc-900 mt-0.5 whitespace-nowrap">
+                          {formatPrice(model.priceFrom)}
+                        </div>
+                      </div>
+                    </div>
 
                     {/* Parameter Specification Grid */}
                     <div className="grid grid-cols-2 gap-x-4 gap-y-3.5 py-4 my-4 border-t border-b border-zinc-100">
