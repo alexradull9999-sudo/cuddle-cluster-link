@@ -71,7 +71,7 @@ export default function Hero({ onCalculateClick, onExploreModelsClick }: HeroPro
           >
             <div className="flex items-center space-x-2 bg-black/40 backdrop-blur-md border border-white/10 rounded-full py-2 px-4 text-xs font-semibold text-white shadow-sm">
               <span className="h-2 w-2 rounded-full bg-[#10B981]" />
-              <span>Звукопоглощение до 60 дБ</span>
+              <span>Звукопоглощение до 40 дБ</span>
             </div>
             
             <div className="flex items-center space-x-2 bg-black/40 backdrop-blur-md border border-white/10 rounded-full py-2 px-4 text-xs font-semibold text-white shadow-sm">
