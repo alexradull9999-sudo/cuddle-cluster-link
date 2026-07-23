@@ -83,6 +83,9 @@ export default function App() {
           onQuickQuote={handleQuickQuote} 
         />
 
+        {/* Custom non-standard engineering solutions */}
+        <CustomSolutionsBlock />
+
         {/* Cabins outside office */}
         <SpecialPurposeCabins />
 
