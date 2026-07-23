@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { X, Send, CheckCircle2, ChevronRight, FolderLock } from "lucide-react";
-import { sendLead } from "@/lib/webhook";
+import React from "react";
+import { openLeadPopup } from "@/lib/leadPopup";
 
 interface StatItem {
   value: string;
@@ -81,35 +79,12 @@ const CASES_DATA: ProjectCase[] = [
 ];
 
 export default function ProjectShowcase() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    company: "",
-    email: ""
-  });
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-    setFormSubmitted(false);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.phone) return;
-    sendLead("project_showcase_catalog", {
-      name: formData.name,
-      phone: formData.phone,
-      company: formData.company,
-      email: formData.email,
+  const handleOpenModal = () =>
+    openLeadPopup("project_showcase_catalog", {
+      title: "Подборка проектов",
+      subtitle: "Оставьте контакт — вышлем PDF-каталог с фото, чертежами и сметами.",
+      buttonLabel: "Получить подборку",
     });
-    setFormSubmitted(true);
-  };
 
   return (
     <section className="py-20 sm:py-28 bg-[#FCFCFC] text-zinc-900 relative border-t border-zinc-200/50" id="projects">
@@ -368,173 +343,8 @@ export default function ProjectShowcase() {
 
       </div>
 
-      {/* Inquiry Modal Popup for downloading project booklets */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4" id="project-download-modal">
-            
-            {/* Modal Backdrop overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={handleCloseModal}
-              className="fixed inset-0 bg-black/70 backdrop-blur-md"
-            />
 
-            {/* Modal Body Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              transition={{ type: "spring", duration: 0.5 }}
-              className="bg-white rounded-[32px] w-full max-w-lg overflow-hidden shadow-2xl relative z-10 border border-zinc-100"
-            >
-              
-              {/* Top cover stripe */}
-              <div className="h-2 bg-gradient-to-r from-indigo-500 via-[#3b82f6] to-cyan-500" />
 
-              {/* Close Button */}
-              <button
-                onClick={handleCloseModal}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-500 hover:text-zinc-900 transition-colors flex items-center justify-center cursor-pointer"
-                aria-label="Закрыть окно"
-              >
-                <X className="w-4 h-4" />
-              </button>
-
-              <div className="p-8 sm:p-10">
-                
-                <AnimatePresence mode="wait">
-                  {!formSubmitted ? (
-                    <motion.div
-                      key="modal-form-view"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="space-y-6"
-                    >
-                      {/* Title block */}
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-indigo-600 text-xs font-bold font-mono tracking-wider uppercase">
-                          <FolderLock className="w-4 h-4" />
-                          <span>ПОРТФОЛИО КЕЙСОВ</span>
-                        </div>
-                        <h3 className="text-2xl font-black text-zinc-900 tracking-tight leading-tight">
-                          Получить полную подборку проектов
-                        </h3>
-                        <p className="text-sm text-zinc-500 leading-relaxed font-normal">
-                          Заполните короткую форму. Мы вышлем подробный PDF-каталог с фотографиями, чертежами и сметами реализованных офисов.
-                        </p>
-                      </div>
-
-                      {/* Interactive Form */}
-                      <form onSubmit={handleSubmit} className="space-y-4">
-                        
-                        {/* Name */}
-                        <div>
-                          <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">Имя</label>
-                          <input
-                            type="text"
-                            required
-                            placeholder="Константин"
-                            value={formData.name}
-                            onChange={(e) => setFormData(p => ({ ...p, name: e.target.value }))}
-                            className="w-full bg-zinc-50 border border-zinc-200 text-sm px-4 py-3.5 rounded-2xl text-zinc-900 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
-                          />
-                        </div>
-
-                        {/* Phone */}
-                        <div>
-                          <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">Телефон</label>
-                          <input
-                            type="tel"
-                            required
-                            placeholder="+7 (999) 000-00-00"
-                            value={formData.phone}
-                            onChange={(e) => setFormData(p => ({ ...p, phone: e.target.value }))}
-                            className="w-full bg-zinc-50 border border-zinc-200 text-sm px-4 py-3.5 rounded-2xl text-zinc-900 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
-                          />
-                        </div>
-
-                        {/* Company */}
-                        <div>
-                          <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">Название компании</label>
-                          <input
-                            type="text"
-                            placeholder="ТехноРейл"
-                            value={formData.company}
-                            onChange={(e) => setFormData(p => ({ ...p, company: e.target.value }))}
-                            className="w-full bg-zinc-50 border border-zinc-200 text-sm px-4 py-3.5 rounded-2xl text-zinc-900 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
-                          />
-                        </div>
-
-                        {/* Email */}
-                        <div>
-                          <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">Почта (для отправки PDF)</label>
-                          <input
-                            type="email"
-                            placeholder="konstantin@company.ru"
-                            value={formData.email}
-                            onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))}
-                            className="w-full bg-zinc-50 border border-zinc-200 text-sm px-4 py-3.5 rounded-2xl text-zinc-900 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
-                          />
-                        </div>
-
-                        <button
-                          type="submit"
-                          className="w-full mt-6 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-2xl flex items-center justify-center space-x-2.5 transition-all cursor-pointer shadow-md active:scale-99"
-                        >
-                          <span>Отправить запрос</span>
-                          <Send className="w-4 h-4" />
-                        </button>
-
-                      </form>
-
-                      <div className="text-[10px] text-zinc-400 leading-normal text-center">
-                        Нажимая кнопку, вы соглашаетесь с условиями обработки персональных данных.
-                      </div>
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="modal-success-view"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="space-y-6 text-center flex flex-col items-center py-4"
-                    >
-                      <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-500">
-                        <CheckCircle2 className="w-9 h-9" />
-                      </div>
-
-                      <div className="space-y-2">
-                        <h3 className="text-2xl font-black text-zinc-900 tracking-tight">Запрос отправлен!</h3>
-                        <p className="text-sm text-zinc-500 leading-relaxed font-normal max-w-sm mx-auto">
-                          Спасибо, {formData.name}. Мы уже формируем подборку проектов {formData.company ? `для компании ${formData.company}` : ""}. 
-                        </p>
-                      </div>
-
-                      <div className="p-4 bg-zinc-50 rounded-2xl border border-zinc-100 text-xs text-zinc-500 text-left max-w-sm leading-normal">
-                        PDF-каталог со спецификациями, результатами замеров тишины и прайс-листом отправлен на почту <span className="font-bold text-zinc-900">{formData.email || "указанный email"}</span>. Также наш специалист свяжется с вами по номеру <span className="font-bold text-zinc-900">{formData.phone}</span> в течение 15 минут.
-                      </div>
-
-                      <button
-                        onClick={handleCloseModal}
-                        className="mt-4 px-6 py-3 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 text-xs font-bold rounded-xl transition-colors cursor-pointer"
-                      >
-                        Отлично, закрыть
-                      </button>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-              </div>
-
-            </motion.div>
-
-          </div>
-        )}
-      </AnimatePresence>
 
     </section>
   );
