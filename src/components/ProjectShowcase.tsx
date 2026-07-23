@@ -63,7 +63,7 @@ const CASES_DATA: ProjectCase[] = [
     stats: [
       { value: "32 дБ", label: "изоляция" },
       { value: "1 чел.", label: "комфортный прием" },
-      { value: "21 день", label: "срок поставки" }
+      { value: "от 30 дней", label: "срок изготовления" }
     ]
   },
   {
