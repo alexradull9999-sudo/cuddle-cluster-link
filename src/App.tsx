@@ -204,7 +204,7 @@ export default function App() {
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleScrollToSection("constructor")} className="hover:text-white transition-colors cursor-pointer text-left">
+                  <button onClick={() => handleScrollToSection("quiz")} className="hover:text-white transition-colors cursor-pointer text-left">
                     Производство
                   </button>
                 </li>

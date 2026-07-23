@@ -47,7 +47,7 @@ export default function Header({ onCalculateClick, onNavigate }: HeaderProps) {
             Технологии
           </button>
           <button 
-            onClick={() => onNavigate("constructor")} 
+            onClick={() => onNavigate("quiz")} 
             className="hover:text-zinc-950 transition-colors cursor-pointer py-1"
           >
             Производство

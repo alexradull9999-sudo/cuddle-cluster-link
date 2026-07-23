@@ -12,7 +12,7 @@ export default function NextStepBlock() {
     {
       tag: "ЕЩЕ ВЫБИРАЮ",
       title: "Подобрать модель",
-      href: "#constructor",
+      href: "#quiz",
       isPrimary: false,
     },
     {
